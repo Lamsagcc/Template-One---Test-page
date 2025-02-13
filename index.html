@@ -3861,63 +3861,19 @@
       }
 
       function checkout() {
-        // Function to set value and trigger events
-        function setFormValue(selector, value) {
-          const input = document.querySelector(selector);
-          if (input) {
-            // Set the value
-            input.value = value;
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                city: document.getElementById('city').value,
+            };
 
-            // Trigger input event
-            const event = new Event("input", { bubbles: true });
-            input.dispatchEvent(event);
-
-            // Trigger change event (if needed)
-            const changeEvent = new Event("change", { bubbles: true });
-            input.dispatchEvent(changeEvent);
-          } else {
-            console.error(`Input field with selector "${selector}" not found.`);
-          }
+            // Send form data to the parent window
+            window.parent.postMessage(
+                { action: 'formData', data: formData },
+                'https://lamsagcc.github.io/Template-One---Test-page/' // Replace with your GitHub Pages URL
+            );
         }
-
-        // Get values from your custom form
-        const fullName = document.querySelector(
-          "section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(1) > input"
-        ).value;
-
-        const phoneNumber = document.querySelector(
-          "section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(2) > input"
-        ).value;
-
-        const city = document.querySelector(
-          "section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(3) > input"
-        ).value;
-
-        // Set values in YouCan's form
-        setFormValue(
-          "#express-checkout-form > div > div > div:nth-child(2) > input",
-          fullName
-        );
-        setFormValue(
-          "#express-checkout-form > div > div > div:nth-child(3) > input",
-          phoneNumber
-        );
-        setFormValue(
-          "#express-checkout-form > div > div > div:nth-child(4) > input",
-          city
-        );
-
-        // Submit YouCan's form
-        const youcanForm = document.querySelector("#express-checkout-form");
-        if (youcanForm) {
-          youcanForm.submit();
-        } else {
-          console.error("YouCan form not found.");
-        }
-      }
-
-      // Call the checkout function when needed
-      checkout();
     </script>
   </body>
 </html>
