@@ -3861,11 +3861,11 @@
       }
 
       function checkout() {
-            // Get form data
+            // Get form data from the custom form
             const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                city: document.getElementById('city').value,
+                name: document.querySelector('section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(1) > input').value,
+                phone: document.querySelector('section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(2) > input').value,
+                city: document.querySelector('section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(3) > input').value,
             };
 
             // Send form data to the parent window
