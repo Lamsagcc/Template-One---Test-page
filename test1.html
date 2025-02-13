@@ -1,0 +1,3923 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs" />
+    <!-- Materialize CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <title>PAGE TITLE</title>
+    <style>
+      /* Main CSS */
+      body {
+        @import url("https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap");
+        /* Variables */
+        --background-color: #ffffff;
+        --content-color: #000000;
+        --content-color-secondary: #000000bd;
+        --content-color-invert: #ffffff;
+        --content-color-invert-secondary: #ffffffe5;
+        --content-color-invert-third: #ccc;
+        --cta-btn-color: #ff474d;
+        --cta-btn-color-hover: #ff363d;
+        --section-header-accent-color: #f5f5f5;
+        --open-faq-question-bgc: #fff6f6;
+        --footer-bgc: #070707;
+        --urgency-bar-bg: #0f0f0f4e;
+        --urgency-bar-shadow: #454545ba;
+        --urgency-bar-warning-color: #ffee00;
+        --error-color: #ff474d;
+        --checkout-form-input-border-color: #08233080;
+        --checkout-form-input-bgc: #ffffff;
+        --form-links-color: #4d00ffe6;
+        --accent-pattern-path: url("https://res.cloudinary.com/djt68ynkw/image/upload/v1739463205/accent_pattern_ylpjyb.png");
+        /* ------ */
+        /* Body CSS */
+        background-color: var(--background-color);
+      }
+
+      * {
+        color: var(--content-color);
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Fustat", sans-serif !important;
+        /* 
+        border: 1px dashed yellowgreen; */
+      }
+
+      main {
+        width: 100%;
+        position: relative;
+      }
+      main section {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+      @media screen and (min-width: 750px) {
+        main section .section-content {
+          width: 65% !important;
+          margin: 0 auto !important;
+        }
+      }
+      @media screen and (min-width: 1110px) {
+        main section .section-content {
+          width: 55% !important;
+          margin: 0 auto !important;
+        }
+      }
+      @media screen and (min-width: 1500px) {
+        main section .section-content {
+          width: 800px !important;
+          margin: 0 auto !important;
+        }
+      }
+      main .hero-section {
+        /* Hero Section Container */
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+        overflow: hidden;
+        /* Hero video background */
+        /* Hero Urgency bar */
+        /* Hero Content */
+      }
+      main .hero-section .hero-background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      main .hero-section .hero-background .hero-bg-video {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        /* Fallback Image */
+        /* Background Video */
+      }
+      main .hero-section .hero-background .hero-bg-video .hero-fallback {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover; /* Ensures the image fills the container */
+        -o-object-position: center;
+        object-position: center; /* Keeps the focus centered */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; /* Sends the image to the background */
+      }
+      main .hero-section .hero-background .hero-bg-video .hero-video {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover; /* Ensures the video fills the container */
+        -o-object-position: center;
+        object-position: center; /* Keeps the focus centered */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; /* Sends the video to the background */
+      }
+      main .hero-section .hero-background #background-darkener {
+        pointer-events: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.08) 0%,
+          rgba(0, 0, 0, 0) 23.72%,
+          rgba(0, 0, 0, 0.56) 100%
+        );
+      }
+      main .hero-section .urgency-bar {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: 70px;
+        max-width: 450px;
+        box-shadow: 0 5px 10px var(--urgency-bar-shadow);
+        border-radius: 8px;
+        overflow: hidden;
+        animation: slideIn 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards,
+          urgency_bar_shaking 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+            alternate infinite;
+        animation-delay: 0.5s; /* Appears after 1 second */
+        /* Background */
+        /* Content */
+      }
+      @keyframes slideIn {
+        from {
+          top: -100px;
+        }
+        to {
+          top: 80px;
+        }
+      }
+      @keyframes urgency_bar_shaking {
+        from {
+          transform: translateX(-49.9%);
+        }
+        to {
+          transform: translateX(-50.1%);
+        }
+      }
+      main .hero-section .urgency-bar .urgency-bar-blur-bg {
+        position: absolute;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: var(--urgency-bar-bg);
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      main .hero-section .urgency-bar::after {
+        content: " ";
+        position: absolute;
+        width: 99%;
+        height: 10px;
+        left: 50%;
+        border-radius: 10px;
+        bottom: 0;
+        z-index: -2;
+        transform: translateX(-50%) translateY(10%);
+        background-color: var(--urgency-bar-warning-color);
+      }
+      main .hero-section .urgency-bar .urgency-bar-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        padding-top: 5px;
+      }
+      main .hero-section .urgency-bar .urgency-bar-content .urgency-bar-phrase {
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        color: var(--content-color-invert);
+      }
+      main
+        .hero-section
+        .urgency-bar
+        .urgency-bar-content
+        #urgency-countdown-container {
+        display: flex;
+        gap: 5px;
+        color: var(--content-color-invert);
+      }
+      main
+        .hero-section
+        .urgency-bar
+        .urgency-bar-content
+        #urgency-countdown-container
+        p {
+        color: var(--content-color-invert);
+        letter-spacing: 8px;
+      }
+      main .hero-section .hero-content-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        padding: 20px 0;
+      }
+      main .hero-section .hero-content-container h1,
+      main .hero-section .hero-content-container h3,
+      main .hero-section .hero-content-container span {
+        color: var(--content-color-invert);
+      }
+      main .hero-section .hero-content-container .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 45%;
+      }
+      main .hero-section .hero-content-container .hero-content .headline {
+        text-align: center;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+      }
+      main .hero-section .hero-content-container .hero-content .subheadline {
+        text-align: center;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      main .hero-section .hero-content-container .hero-content .price-bold {
+        text-align: center;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+        margin-bottom: 8px;
+      }
+      main
+        .hero-section
+        .hero-content-container
+        .hero-content
+        .price-bold
+        .text-regular {
+        font-size: 18px;
+        font-weight: 400;
+      }
+      main .hero-section .hero-content-container .hero-content #dot-seperator {
+        margin: 16px 0;
+      }
+      main .hero-section .hero-content-container .hero-content .hero-badges {
+        color: var(--content-color-invert-secondary);
+        text-align: center;
+        text-shadow: 0px 0px 4.8px rgba(0, 0, 0, 0.25);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+      }
+      main
+        .hero-section
+        .hero-content-container
+        .hero-content
+        .down-arrow-container {
+        margin-top: 50px;
+        animation: up_n_down cubic-bezier(0.895, 0.03, 0.685, 0.22) 1s alternate
+          infinite;
+      }
+      @keyframes up_n_down {
+        from {
+          transform: translateY(0px);
+        }
+        to {
+          transform: translateY(3px);
+        }
+      }
+      main
+        .hero-section
+        .hero-content-container
+        .hero-content
+        .down-arrow-container
+        img {
+        height: 15px;
+        -o-object-fit: contain;
+        object-fit: contain;
+        transition: 0.1s;
+      }
+      main
+        .hero-section
+        .hero-content-container
+        .hero-content
+        .down-arrow-container
+        img:hover,
+      main
+        .hero-section
+        .hero-content-container
+        .hero-content
+        .down-arrow-container
+        img:active {
+        transform: scale(0.9);
+      }
+      @media screen and (max-width: 390px) {
+        main .hero-section .hero-content-container {
+          transform: scale(0.8);
+          padding-bottom: 150px;
+        }
+      }
+      main .product-images-section {
+        position: relative;
+        height: unset;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        padding: 20px 0;
+        gap: 30px;
+      }
+      main .product-images-section .product-images-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      main .product-images-section .product-images-content .carousel-container {
+        width: 100%;
+        height: 420px;
+        display: flex;
+        position: relative;
+        transition: opacity 0.3s ease;
+      }
+      main
+        .product-images-section
+        .product-images-content
+        .carousel-container
+        .carousel {
+        perspective: 100px;
+      }
+      main
+        .product-images-section
+        .product-images-content
+        .carousel-container
+        .carousel
+        .carousel-item {
+        width: 350px;
+        height: 400px;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      main
+        .product-images-section
+        .product-images-content
+        .carousel-container
+        .carousel
+        .carousel-item
+        img,
+      main
+        .product-images-section
+        .product-images-content
+        .carousel-container
+        .carousel
+        .carousel-item
+        video {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+      main
+        .product-images-section
+        .product-images-content
+        .carousel-container
+        .carousel
+        .carousel-item:not(.active) {
+        transform: rotateY(30deg);
+      }
+      main
+        .product-images-section
+        .product-images-content
+        .carousel-container
+        .carousel-container:not(.initialized) {
+        display: block !important;
+        height: 0;
+        overflow: hidden;
+      }
+      main
+        .product-images-section
+        .product-images-content
+        .image-descriptions-carousel {
+        width: 100%;
+        height: 90px;
+        display: flex;
+        flex-direction: column;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        gap: 20px;
+        padding: 10px;
+      }
+      main
+        .product-images-section
+        .product-images-content
+        .image-descriptions-carousel
+        .description-carousel-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        transition: opacity 0.1s;
+      }
+      main
+        .product-images-section
+        .product-images-content
+        .image-descriptions-carousel
+        .description-carousel-item
+        h4 {
+        color: var(--content-color);
+        text-align: center;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin: 0;
+        padding: 0;
+      }
+      main
+        .product-images-section
+        .product-images-content
+        .image-descriptions-carousel
+        .description-carousel-item
+        p {
+        color: var(--content-color-secondary);
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        width: 300px;
+      }
+      main .product-images-section .product-images-content .dots-container {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 5px;
+      }
+      main
+        .product-images-section
+        .product-images-content
+        .dots-container
+        .dot {
+        width: 5px;
+        height: 5px;
+        background: var(--content-color-invert-third);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      main
+        .product-images-section
+        .product-images-content
+        .dots-container
+        .dot.active {
+        background: var(--content-color);
+        transform: scale(1.2);
+      }
+      main .product-images-section .product-images-content #line-seperator {
+        width: 70px;
+        height: 2px;
+        border-radius: 6px;
+        background-color: var(--content-color-secondary);
+        margin: 18px 0 8px 0;
+      }
+      main .features-benefits-section {
+        position: relative;
+        height: unset;
+        display: flex;
+        flex-direction: column;
+      }
+      main
+        .features-benefits-section
+        .section-header-container
+        .section-header {
+        font-size: 32px;
+        width: 80%;
+      }
+      main
+        .features-benefits-section
+        .section-header-container
+        .section-header-accent {
+        transform: translateY(50%);
+      }
+      main .features-benefits-section .section-content {
+        margin: 70px 0 30px 0;
+      }
+      main
+        .features-benefits-section
+        .section-content
+        .feature-container:not(:last-child) {
+        margin-bottom: 40px;
+      }
+      main .customer-reviews-section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        height: unset;
+      }
+      main .customer-reviews-section .section-header-container {
+        margin-bottom: 35px;
+      }
+      main .customer-reviews-section .section-header-container .section-header {
+        font-size: 32px;
+        width: 80%;
+      }
+      main
+        .customer-reviews-section
+        .section-header-container
+        .section-header-accent {
+        transform: translateY(45%);
+      }
+      main .customer-reviews-section .section-content {
+        display: flex;
+        flex-direction: column;
+        gap: 45px;
+        margin-bottom: 20px;
+      }
+      main .faq-section {
+        position: relative;
+        height: unset;
+      }
+      main .faq-section .section-header-container .section-header {
+        font-size: 32px;
+        width: 80%;
+      }
+      main .faq-section .section-header-container .section-header-accent {
+        transform: translateY(20%);
+      }
+      main .faq-section .section-content {
+        margin-top: 15px;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+      }
+
+      h3 {
+        text-align: center;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      .section-header-container {
+        position: relative;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .section-header-container h1.section-header {
+        font-size: 30px;
+        font-weight: 900 !important;
+        text-align: center;
+        font-style: normal;
+        line-height: normal;
+      }
+      .section-header-container h1.section-header-accent {
+        position: absolute;
+        color: var(--section-header-accent-color);
+        z-index: -1;
+        font-size: 70px !important;
+        font-weight: 800 !important;
+        transform: translateY(20%);
+      }
+
+      #dot-seperator {
+        background-color: var(--content-color);
+        border-radius: 50%;
+      }
+      #dot-seperator.dot-4px {
+        width: 4px;
+        height: 4px;
+      }
+      #dot-seperator.dot-color-invert {
+        background-color: var(--content-color-invert);
+      }
+
+      body.scroll-prevented {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <style>
+        .checkout-form-container {
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: end;
+          z-index: 5;
+          transform: translateY(100%);
+          transition: transform 0.4s ease-in-out;
+          transition-delay: 0.2s;
+        }
+        .checkout-form-container #bg-blur {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          right: 0;
+          background: rgba(13, 13, 13, 0.41);
+          backdrop-filter: blur(4px);
+          z-index: -1;
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+
+        /* Slide up animation */
+        .checkout-form-container.visible {
+          transform: translateY(0%);
+          transition-delay: 0s;
+        }
+        .checkout-form-container.visible #bg-blur {
+          opacity: 1;
+          transition: 0.2s;
+          transition-delay: 0.4s;
+        }
+
+        /* ----- */
+
+        .checkout-form {
+          width: 100%;
+          height: 68%;
+          background-color: var(--background-color);
+          background-repeat: no-repeat;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border-top-left-radius: 25px;
+          border-top-right-radius: 25px;
+          padding: 20px 16px;
+          border-top: 1px solid var(--content-color);
+          position: relative;
+        }
+        .checkout-form:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-image: var(--accent-pattern-path);
+          opacity: 0.6;
+          pointer-events: none;
+        }
+        .checkout-form .thankyou-message-container {
+          display: none;
+        }
+        .checkout-form .exit-form-btn {
+          width: 28px;
+          height: 28px;
+          background: none;
+          border: none;
+          outline: none;
+          position: absolute;
+          right: 25px;
+          margin-top: 8px;
+        }
+        .checkout-form .exit-form-btn svg {
+          pointer-events: none;
+          width: 15px;
+          object-fit: contain;
+        }
+        .checkout-form .logo-container {
+          position: relative;
+          z-index: 5;
+        }
+        .checkout-form .logo-container img {
+          height: 60px;
+          object-fit: contain;
+        }
+
+        .checkout-form .price-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 20px;
+        }
+        .checkout-form .price-container span.old-price {
+          color: var(--content-color-secondary);
+          text-align: center;
+          text-shadow: 0px 1px 7.5px rgba(0, 0, 0, 0.17);
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          text-decoration: line-through;
+        }
+        .checkout-form .price-container span.price {
+          color: var(--cta-btn-color);
+          text-align: center;
+          text-shadow: 0px 1px 7.5px rgba(0, 0, 0, 0.17);
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+
+        .form-container {
+          position: relative;
+          z-index: 5;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .form-container .inputs-group {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
+        .form-container .inputs-group .input-container {
+          display: flex;
+          gap: 4px;
+          flex-wrap: wrap;
+          column-gap: 12px;
+          align-items: center;
+        }
+        .form-container .inputs-group .input-container:not(.input-error) span {
+          display: none;
+        }
+        .form-container .inputs-group .input-container.input-error input {
+          border: 1.5px solid var(--error-color) !important;
+        }
+        .form-container .inputs-group input {
+          width: 95% !important;
+          height: 55px;
+          border-radius: 4px;
+          border: 1px solid var(--checkout-form-input-border-color) !important;
+          background: var(--checkout-form-input-bgc) !important;
+          padding: 0px 10px !important;
+          color: var(--content-color);
+          text-align: right;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          box-shadow: none !important;
+          margin: 0 !important;
+        }
+        .form-container .inputs-group input:focus {
+          border: 1.5px solid var(--content-color) !important;
+        }
+        .form-container .inputs-group label {
+          color: var(--content-color) !important;
+          text-align: right;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
+
+        .guarenties-container {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          padding: 0 10px;
+        }
+        .guarenties-container .guarentee {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+        .guarenties-container .guarentee span {
+          color: var(--content-color-secondary);
+          text-align: right;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+        .guarenties-container .guarentee svg {
+          width: 14px;
+          object-fit: contain;
+        }
+        .form-container .order-button-container {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          margin-top: 8px;
+        }
+        .form-container .order-button-container #order-now-btn {
+          width: 390px;
+          height: 53px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--content-color-invert);
+          background-color: var(--cta-btn-color);
+          border-radius: 50px;
+          outline: none;
+          border: none;
+          box-shadow: 0px 0px 14.3px 3px rgba(0, 0, 0, 0.14);
+          transition: transform 0.2s;
+
+          text-align: center;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: normal;
+        }
+        .order-button-container #order-now-btn:hover {
+          transform: scale(1.007);
+        }
+        .order-button-container #order-now-btn:active {
+          background-color: var(--cta-btn-color-hover);
+        }
+
+        .checkout-form .form-links {
+          margin-top: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+        }
+        .checkout-form .form-links a {
+          text-decoration: underline;
+          color: var(--form-links-color);
+        }
+        .checkout-form .form-links #line-seperator {
+          width: 2px;
+          height: 15px;
+          border-radius: 10px;
+          background-color: var(--content-color);
+        }
+
+        /* Thank you message */
+        .checkout-form.checked-out .form-content {
+          display: none;
+        }
+        .checkout-form.checked-out .thankyou-message-container {
+          width: 100%;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 50px;
+        }
+        .checkout-form.checked-out .thankyou-message-container h3.header {
+          color: var(--cta-btn-color);
+          text-align: center;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: normal;
+          margin: 0 !important;
+          margin-top: 40px !important;
+        }
+        .checkout-form.checked-out
+          .thankyou-message-container
+          span.calling-back-paragraph {
+          text-align: center;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          width: 320px;
+        }
+        .checkout-form.checked-out
+          .thankyou-message-container
+          span.phone-on-warning {
+          color: #000;
+          text-align: center;
+          font-size: 14px;
+          font-weight: 700;
+          text-decoration: underline;
+        }
+        .checkout-form.checked-out .thankyou-message-container #dot-seperator {
+          margin: 10px 0;
+        }
+      </style>
+
+      <section class="checkout-form-container">
+        <div id="bg-blur"></div>
+        <div class="checkout-form">
+          <button class="exit-form-btn">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13 1L1 13"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M1 1L13 13"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <div class="logo-container">
+            <img
+              src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739463205/logo-black_lskqzu.svg"
+              alt=""
+            />
+          </div>
+          <div class="form-content">
+            <div class="price-container">
+              <span class="price">١٩٩ ريال سعودي</span>
+              <span class="old-price">٢٩٩ ريال سعودي</span>
+            </div>
+            <div class="form-container">
+              <div class="inputs-group">
+                <div class="input-container input-required">
+                  <label for="full_name">الاسم الكامل</label>
+                  <span style="color: #f00">الاسم الأول مطلوب.</span>
+                  <input
+                    type="text"
+                    name="full_name"
+                    placeholder="الاسم الكامل..."
+                  />
+                </div>
+                <div class="input-container input-required">
+                  <label for="phone_number">رقم الهاتف</label>
+                  <span style="color: #f00">الهاتف مطلوب..</span>
+                  <input
+                    type="tel"
+                    name="phone_number"
+                    placeholder="رقم الهاتف..."
+                  />
+                </div>
+                <div class="input-container">
+                  <label for="city">المدينة</label>
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder="المدينة أو العنوان..."
+                  />
+                </div>
+              </div>
+              <div class="guarenties-container">
+                <div class="guarentee">
+                  <svg
+                    width="13"
+                    height="10"
+                    viewBox="0 0 13 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      id="Vector"
+                      d="M12.0247 1L4.46216 8.5625L1.02466 5.125"
+                      stroke="black"
+                      stroke-width="1.375"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                  <span>ضمان الاسترجاع خلال ثلاثة أيام - بدون أي أسئلة!</span>
+                </div>
+                <div class="guarentee">
+                  <svg
+                    width="13"
+                    height="10"
+                    viewBox="0 0 13 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      id="Vector"
+                      d="M12.0247 1L4.46216 8.5625L1.02466 5.125"
+                      stroke="black"
+                      stroke-width="1.375"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <span>دفع عند الاستلام - آمن وسهل!</span>
+                </div>
+              </div>
+              <div class="order-button-container">
+                <button id="order-now-btn">إرسال الطلب</button>
+              </div>
+            </div>
+          </div>
+          <div class="thankyou-message-container">
+            <style>
+              .checkmark {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                display: block;
+                stroke-width: 2;
+                stroke: #fff;
+                stroke-miterlimit: 10;
+                box-shadow: inset 0px 0px 0px var(--cta-btn-color);
+                animation: fill 0.4s ease-in-out 0.4s forwards,
+                  scale 0.3s ease-in-out 0.9s both;
+                transform: scale(2.1) !important;
+              }
+
+              .checkmark__circle {
+                stroke-dasharray: 166;
+                stroke-dashoffset: 166;
+                stroke-width: 2;
+                stroke-miterlimit: 10;
+                stroke: var(--cta-btn-color);
+                fill: none;
+                animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+              }
+
+              .checkmark__check {
+                transform-origin: 50% 50%;
+                stroke-dasharray: 48;
+                stroke-dashoffset: 48;
+                animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s
+                  forwards;
+              }
+
+              @keyframes stroke {
+                100% {
+                  stroke-dashoffset: 0;
+                }
+              }
+              @keyframes scale {
+                0%,
+                100% {
+                  transform: none;
+                }
+                50% {
+                  transform: scale3d(1.5, 1.1, 1);
+                }
+              }
+              @keyframes fill {
+                100% {
+                  box-shadow: inset 0px 0px 0px 30px var(--cta-btn-color);
+                }
+              }
+            </style>
+            <svg
+              class="checkmark"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 52 52"
+            >
+              <circle
+                class="checkmark__circle"
+                cx="26"
+                cy="26"
+                r="25"
+                fill="none"
+              ></circle>
+              <path
+                class="checkmark__check"
+                fill="none"
+                d="M14.1 27.2l7.1 7.2 16.7-16.8"
+              ></path>
+            </svg>
+            <h3 class="header">شكرا على طلبك</h3>
+            <span class="calling-back-paragraph"
+              >فريق خدمة العملاء لدينا سيتصل بك خلال دقائق لتأكيد طلبك وعنوان
+              الشحن! (خارج أوقات العطلات)</span
+            >
+            <div id="dot-seperator" class="dot-4px"></div>
+            <span class="phone-on-warning"
+              >يرجى التأكد من أن هاتفك جاهز لاستقبال مكالماتنا!</span
+            >
+          </div>
+
+          <div class="form-links">
+            <a href="https://lamsagcc.com/pages/contact-us" target="_blank"
+              >اتصل بنا</a
+            >
+            <div id="line-seperator"></div>
+            <a href="https://lamsagcc.com/pages/about-us" target="_blank"
+              >عن المتجر</a
+            >
+            <div id="line-seperator"></div>
+            <a href="https://lamsagcc.com/pages/return-policy" target="_blank"
+              >سياسة الاستبدال والاسترجاع</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="hero-section">
+        <!-- Hero Background -->
+        <div class="hero-background">
+          <div id="background-darkener"></div>
+          <div class="hero-bg-video">
+            <!-- Fallback Image (Hidden by Default) -->
+            <picture class="hero-fallback">
+              <source
+                srcset="
+                  https://res.cloudinary.com/djt68ynkw/image/upload/v1739464472/video-bg-thumbnail_q7lv7s.webp
+                "
+                media="(max-width: 767px)"
+              />
+              <source
+                srcset="
+                  https://res.cloudinary.com/djt68ynkw/image/upload/v1739464472/video-bg-thumbnail_q7lv7s.webp
+                "
+                media="(min-width: 768px)"
+              />
+              <img
+                src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739464472/video-bg-thumbnail_q7lv7s.webp"
+                alt="أضواء LED لسيارتك"
+              />
+            </picture>
+
+            <!-- Background Video -->
+            <video
+              autoplay=""
+              muted=""
+              loop=""
+              playsinline=""
+              class="hero-video"
+            >
+              <source
+                src="https://res.cloudinary.com/djt68ynkw/video/upload/v1739464473/hero-section-bg_jenfsb.mp4"
+                media="(max-width: 767px)"
+              />
+              <source
+                src="https://res.cloudinary.com/djt68ynkw/video/upload/v1739464473/hero-section-bg_jenfsb.mp4"
+                media="(min-width: 768px)"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-content-container">
+          <div class="logo-container">
+            <img
+              src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739463205/logo-white_ypmcvv.svg"
+              alt=""
+            />
+          </div>
+          <div class="hero-content">
+            <span class="headline">أنر سيارتك بأضواء LED عصرية</span>
+            <span class="subheadline">توصيل مجاني في جميع أنحاء السعودية!</span>
+            <div id="dot-seperator" class="dot-4px dot-color-invert"></div>
+            <span class="price-bold"
+              >١٩٩ ريال سعودي <span class="text-regular">فقط</span></span
+            >
+            <div class="cta-btn-container">
+              <style>
+                .cta-button {
+                  width: 250px;
+                  height: 50px;
+                  background-color: var(--cta-btn-color);
+                  color: var(--content-color-invert);
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  border-radius: 50px;
+                  box-shadow: 0px 0px 7.1px 0px rgba(0, 0, 0, 0.24);
+                  outline: none;
+                  border: none;
+
+                  text-align: center;
+                  font-size: 16px;
+                  font-style: normal;
+                  font-weight: 700;
+                  line-height: normal;
+                  position: relative;
+                  overflow: hidden;
+                  transition: 0.1s;
+                }
+                .cta-button:hover::after {
+                  content: "";
+                  position: absolute;
+                  top: -50%;
+                  left: -50%;
+                  width: 200%;
+                  height: 200%;
+                  background: linear-gradient(
+                    to right,
+                    rgba(255, 255, 255, 0) 30%,
+                    rgba(255, 255, 255, 0.1) 50%,
+                    rgba(255, 255, 255, 0) 70%
+                  );
+                  transform: rotate(-15deg);
+                  animation: shine 1.5s infinite;
+                }
+                .cta-button:active {
+                  background-color: var(--cta-btn-color) !important;
+                  transform: scale(0.992); /* Mimic a "pressed" effect */
+                }
+                .cta-button:hover,
+                .cta-button:focus {
+                  background-color: var(--cta-btn-color-hover);
+                }
+
+                @keyframes shine {
+                  0% {
+                    left: -150%;
+                  }
+                  100% {
+                    left: 150%;
+                  }
+                }
+              </style>
+              <button class="cta-button">➔ اطلب الآن بخصم ٥٠٪</button>
+            </div>
+            <div id="dot-seperator" class="dot-4px dot-color-invert"></div>
+            <span class="hero-badges"
+              >دفع عند الاستلام | شحن سريع | ضمان استرجاع ٣٠ يوم</span
+            >
+            <!-- Down arrow -->
+            <div class="down-arrow-container">
+              <svg
+                width="11"
+                height="13"
+                viewBox="0 0 11 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  id="Vector"
+                  d="M1.16669 7.06667L5.50002 11.4L9.83335 7.06667M1.16669 1L5.50002 5.33333L9.83335 1"
+                  stroke="white"
+                  stroke-width="1.73333"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Urgency bar -->
+        <div class="urgency-bar">
+          <div class="urgency-bar-blur-bg"></div>
+          <div class="urgency-bar-content">
+            <span class="urgency-bar-phrase">
+              خصم ٥٠٪ مع التوصيل السريع! - العرض ينتهي خلال:</span
+            >
+            <div id="urgency-countdown-container">
+              <p id="countdown-seconds">٢٦</p>
+              <p class="countdown-seperator">:</p>
+              <p id="countdown-minutes">١١</p>
+              <p class="countdown-seperator">:</p>
+              <p id="countdown-hours">٠٣</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="product-images-section">
+        <div
+          class="accent-pattern-container"
+          style="
+            position: absolute;
+            bottom: 0;
+            opacity: 0.7;
+            width: 100%;
+            height: 120%;
+            z-index: -9;
+            overflow: hidden;
+          "
+        >
+          <img
+            src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739463205/accent_pattern_ylpjyb.png"
+            style="transform: rotate(0deg); object-fit: cover"
+          />
+        </div>
+        <div
+          class="accent-pattern-container"
+          style="
+            position: absolute;
+            bottom: 0;
+            opacity: 0.7;
+            width: 100%;
+            height: 52%;
+            z-index: -9;
+            overflow: hidden;
+          "
+        >
+          <img
+            src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739463205/accent_pattern_ylpjyb.png"
+            style="transform: rotate(0deg); object-fit: cover"
+          />
+        </div>
+        <div class="section-header-container">
+          <h1 class="section-header">اكتشف أضواء LED الخاصة بنا</h1>
+          <h1 class="section-header-accent">اكتشف أضواء</h1>
+        </div>
+        <div class="section-content product-images-content">
+          <div
+            class="carousel-container initialized"
+            data-observer="[object IntersectionObserver]"
+            data-fallback="22"
+            style="
+              opacity: 1;
+              visibility: visible;
+              height: auto;
+              overflow: hidden;
+              display: block;
+            "
+          >
+            <div class="carousel carousel-slider">
+              <div
+                class="carousel-item active"
+                style="
+                  z-index: 0;
+                  opacity: 1;
+                  visibility: visible;
+                  transform: translateX(73.5px) translateY(0px) translateX(0px)
+                    translateX(0px) translateZ(0px);
+                "
+              >
+                <img
+                  src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739464472/video-bg-thumbnail_q7lv7s.webp"
+                  alt="Product 1"
+                />
+              </div>
+              <div
+                class="carousel-item"
+                style="
+                  transform: translateX(73.5px) translateY(0px)
+                    translateX(350px) translateZ(-10px);
+                  z-index: -1;
+                  opacity: 0.333333;
+                  visibility: visible;
+                "
+              >
+                <img
+                  src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739464472/video-bg-thumbnail_q7lv7s.webp"
+                  alt="Product 2"
+                />
+              </div>
+              <div
+                class="carousel-item"
+                style="
+                  transform: translateX(73.5px) translateY(0px)
+                    translateX(700px) translateZ(-20px);
+                  z-index: -2;
+                  opacity: -0.333333;
+                  visibility: visible;
+                "
+              >
+                <img
+                  src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739464472/video-bg-thumbnail_q7lv7s.webp"
+                  alt="Product 3"
+                />
+              </div>
+              <div
+                class="carousel-item"
+                style="
+                  transform: translateX(73.5px) translateY(0px)
+                    translateX(-700px) translateZ(-20px);
+                  z-index: -2;
+                  opacity: -0.333333;
+                  visibility: visible;
+                "
+              >
+                <img
+                  src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739464472/video-bg-thumbnail_q7lv7s.webp"
+                  alt="Product 3"
+                />
+              </div>
+              <div
+                class="carousel-item"
+                style="
+                  transform: translateX(73.5px) translateY(0px)
+                    translateX(-350px) translateZ(-10px);
+                  z-index: -1;
+                  opacity: 0.333333;
+                  visibility: visible;
+                "
+              >
+                <video
+                  src="https://res.cloudinary.com/djt68ynkw/video/upload/v1739464473/hero-section-bg_jenfsb.mp4"
+                  alt="Product 3"
+                  loop=""
+                  autoplay=""
+                  muted=""
+                  class="hoverZoomLink"
+                ></video>
+              </div>
+            </div>
+          </div>
+          <div class="image-descriptions-carousel">
+            <div class="description-carousel-item active">
+              <h4>تحكم عن بعد مريح</h4>
+              <p>
+                تحكم في الألوان والوضعيات المختلفة باستخدام جهاز تحكم لاسلكي.
+              </p>
+            </div>
+            <div class="description-carousel-item">
+              <h4>تحكم عن بعد مريح</h4>
+              <p>
+                تحكم في الألوان والوضعيات المختلفة باستخدام جهاز تحكم لاسلكي.
+              </p>
+            </div>
+            <div class="description-carousel-item">
+              <h4>تحكم عن بعد مريح</h4>
+              <p>
+                تحكم في الألوان والوضعيات المختلفة باستخدام جهاز تحكم لاسلكي.
+              </p>
+            </div>
+            <div class="description-carousel-item">
+              <h4>تحكم عن بعد مريح</h4>
+              <p>
+                تحكم في الألوان والوضعيات المختلفة باستخدام جهاز تحكم لاسلكي.
+              </p>
+            </div>
+            <div class="description-carousel-item">
+              <h4>تحكم عن بعد مريح</h4>
+              <p>
+                تحكم في الألوان والوضعيات المختلفة باستخدام جهاز تحكم لاسلكي.
+              </p>
+            </div>
+          </div>
+          <div class="dots-container">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+          <div id="line-seperator"></div>
+          <style>
+            .cta-button {
+              width: 250px;
+              height: 50px;
+              background-color: var(--cta-btn-color);
+              color: var(--content-color-invert);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-radius: 50px;
+              box-shadow: 0px 0px 7.1px 0px rgba(0, 0, 0, 0.24);
+              outline: none;
+              border: none;
+
+              text-align: center;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+              position: relative;
+              overflow: hidden;
+              transition: 0.1s;
+            }
+            .cta-button:hover::after {
+              content: "";
+              position: absolute;
+              top: -50%;
+              left: -50%;
+              width: 200%;
+              height: 200%;
+              background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 70%
+              );
+              transform: rotate(-15deg);
+              animation: shine 1.5s infinite;
+            }
+            .cta-button:active {
+              background-color: var(--cta-btn-color) !important;
+              transform: scale(0.992); /* Mimic a "pressed" effect */
+            }
+            .cta-button:hover,
+            .cta-button:focus {
+              background-color: var(--cta-btn-color-hover);
+            }
+
+            @keyframes shine {
+              0% {
+                left: -150%;
+              }
+              100% {
+                left: 150%;
+              }
+            }
+          </style>
+          <button class="cta-button">➔ اطلب الآن بخصم ٥٠٪</button>
+        </div>
+      </section>
+      <section class="features-benefits-section">
+        <div
+          class="accent-pattern-container"
+          style="
+            position: absolute;
+            bottom: 0;
+            opacity: 0.7;
+            width: 100%;
+            height: 90%;
+            z-index: -9;
+            overflow: hidden;
+          "
+        >
+          <img
+            src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739463205/accent_pattern_ylpjyb.png"
+            style="transform: rotate(90deg); object-fit: cover"
+          />
+        </div>
+        <div
+          class="accent-pattern-container"
+          style="
+            position: absolute;
+            bottom: 0;
+            opacity: 0.7;
+            width: 100%;
+            height: 70%;
+            z-index: -9;
+            overflow: hidden;
+          "
+        >
+          <img
+            src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739463205/accent_pattern_ylpjyb.png"
+            style="transform: rotate(-90deg); object-fit: cover"
+          />
+        </div>
+        <div
+          class="accent-pattern-container"
+          style="
+            position: absolute;
+            bottom: 0;
+            opacity: 0.7;
+            width: 100%;
+            height: 55%;
+            z-index: -9;
+            overflow: hidden;
+          "
+        >
+          <img
+            src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739463205/accent_pattern_ylpjyb.png"
+            style="transform: rotate(90deg); object-fit: cover"
+          />
+        </div>
+        <div
+          class="accent-pattern-container"
+          style="
+            position: absolute;
+            bottom: 0;
+            opacity: 0.7;
+            width: 100%;
+            height: 37%;
+            z-index: -9;
+            overflow: hidden;
+          "
+        >
+          <img
+            src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739463205/accent_pattern_ylpjyb.png"
+            style="transform: rotate(180deg); object-fit: cover"
+          />
+        </div>
+        <div class="section-header-container">
+          <h1 class="section-header">لماذا تختار أضواء LED الخاصة بنا؟</h1>
+          <h1 class="section-header-accent">لماذا؟</h1>
+        </div>
+        <div class="section-content product-images-content">
+          <!-- PARAMS -->
+          <!-- 
+    -img_src
+    -header
+    -subheader
+    -description
+ -->
+          <!------------------------>
+          <style>
+            .feature-container-left {
+              width: 85%;
+              max-width: 550px;
+              display: flex;
+              flex-direction: column;
+              justify-content: start;
+              float: left;
+            }
+            .feature-container-left .feature-image-container {
+              width: 100%;
+              height: 300px;
+              border-top-right-radius: 8px;
+              border-bottom-right-radius: 8px;
+              overflow: hidden;
+              box-shadow: 0px 2.895px 9.987px 3.618px rgba(0, 0, 0, 0.25);
+            }
+            .feature-container-left .feature-image-container img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+
+            .feature-container-left .feature-content {
+              padding: 5px 10px;
+            }
+            .feature-container-left .feature-content h3 {
+              text-align: right;
+              font-size: 28px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+              margin: 0;
+            }
+            .feature-container-left .feature-content h4 {
+              text-align: right;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+              margin: 0;
+            }
+            .feature-container-left .feature-content span.feature-description {
+              color: var(--content-color-secondary);
+              text-align: right;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+          </style>
+          <div class="feature-container feature-container-left">
+            <div class="feature-image-container">
+              <img
+                src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739464472/video-bg-thumbnail_q7lv7s.webp"
+                alt=""
+              />
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-header">سهولة التركيب</h3>
+              <h4 class="feature-subheader">
+                لا حاجة لأدوات - ثبتها في ٦٠ ثانية!
+              </h4>
+              <span class="feature-description"
+                >ثبت الأضواء تحت مقعد سيارتك في أقل من دقيقة واستمتع بإضاءة
+                مذهلة.</span
+              >
+            </div>
+          </div>
+          <!-- PARAMS -->
+          <!-- 
+    -img_src
+    -header
+    -subheader
+    -description
+ -->
+          <!------------------------>
+          <style>
+            .feature-container-right {
+              width: 85%;
+              max-width: 550px;
+              display: flex;
+              flex-direction: column;
+              justify-content: start;
+              float: right;
+            }
+            .feature-container-right .feature-image-container {
+              width: 100%;
+              height: 300px;
+              border-top-left-radius: 8px;
+              border-bottom-left-radius: 8px;
+              overflow: hidden;
+              box-shadow: 0px 2.895px 9.987px 3.618px rgba(0, 0, 0, 0.25);
+            }
+            .feature-container-right .feature-image-container img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+
+            .feature-container-right .feature-content {
+              padding: 5px 30px 10px 5px;
+            }
+            .feature-container-right .feature-content h3 {
+              text-align: right;
+              font-size: 28px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+              margin: 0;
+            }
+            .feature-container-right .feature-content h4 {
+              text-align: right;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+              margin: 0;
+            }
+            .feature-container-right .feature-content span.feature-description {
+              color: var(--content-color-secondary);
+              text-align: right;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+          </style>
+          <div class="feature-container feature-container-right">
+            <div class="feature-image-container">
+              <img
+                src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739464472/video-bg-thumbnail_q7lv7s.webp"
+                alt=""
+              />
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-header">qsdf التركيب</h3>
+              <h4 class="feature-subheader">
+                لا حاجة لأدوات - qsdf في ٦٠ ثانية!
+              </h4>
+              <span class="feature-description"
+                >ثبت الأضواء تحت مقعد سيارتك في أقل من دقيقة qsdfqsdf بإضاءة
+                مذهلة.</span
+              >
+            </div>
+          </div>
+          <!-- PARAMS -->
+          <!-- 
+    -img_src
+    -header
+    -subheader
+    -description
+ -->
+          <!------------------------>
+          <style>
+            .feature-container-left {
+              width: 85%;
+              max-width: 550px;
+              display: flex;
+              flex-direction: column;
+              justify-content: start;
+              float: left;
+            }
+            .feature-container-left .feature-image-container {
+              width: 100%;
+              height: 300px;
+              border-top-right-radius: 8px;
+              border-bottom-right-radius: 8px;
+              overflow: hidden;
+              box-shadow: 0px 2.895px 9.987px 3.618px rgba(0, 0, 0, 0.25);
+            }
+            .feature-container-left .feature-image-container img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+
+            .feature-container-left .feature-content {
+              padding: 5px 10px;
+            }
+            .feature-container-left .feature-content h3 {
+              text-align: right;
+              font-size: 28px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+              margin: 0;
+            }
+            .feature-container-left .feature-content h4 {
+              text-align: right;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+              margin: 0;
+            }
+            .feature-container-left .feature-content span.feature-description {
+              color: var(--content-color-secondary);
+              text-align: right;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+          </style>
+          <div class="feature-container feature-container-left">
+            <div class="feature-image-container">
+              <img
+                src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739464472/video-bg-thumbnail_q7lv7s.webp"
+                alt=""
+              />
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-header">سهولة التركيب</h3>
+              <h4 class="feature-subheader">
+                لا حاجة لأدوات - ثبتها في ٦٠ ثانية!
+              </h4>
+              <span class="feature-description"
+                >ثبت الأضواء تحت مقعد سيارتك في أقل من دقيقة واستمتع بإضاءة
+                مذهلة.</span
+              >
+            </div>
+          </div>
+          <!-- PARAMS -->
+          <!-- 
+    -img_src
+    -header
+    -subheader
+    -description
+ -->
+          <!------------------------>
+          <style>
+            .feature-container-right {
+              width: 85%;
+              max-width: 550px;
+              display: flex;
+              flex-direction: column;
+              justify-content: start;
+              float: right;
+            }
+            .feature-container-right .feature-image-container {
+              width: 100%;
+              height: 300px;
+              border-top-left-radius: 8px;
+              border-bottom-left-radius: 8px;
+              overflow: hidden;
+              box-shadow: 0px 2.895px 9.987px 3.618px rgba(0, 0, 0, 0.25);
+            }
+            .feature-container-right .feature-image-container img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+
+            .feature-container-right .feature-content {
+              padding: 5px 30px 10px 5px;
+            }
+            .feature-container-right .feature-content h3 {
+              text-align: right;
+              font-size: 28px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+              margin: 0;
+            }
+            .feature-container-right .feature-content h4 {
+              text-align: right;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+              margin: 0;
+            }
+            .feature-container-right .feature-content span.feature-description {
+              color: var(--content-color-secondary);
+              text-align: right;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+          </style>
+          <div class="feature-container feature-container-right">
+            <div class="feature-image-container">
+              <img
+                src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739464472/video-bg-thumbnail_q7lv7s.webp"
+                alt=""
+              />
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-header">qsdf التركيب</h3>
+              <h4 class="feature-subheader">
+                لا حاجة لأدوات - qsdf في ٦٠ ثانية!
+              </h4>
+              <span class="feature-description"
+                >ثبت الأضواء تحت مقعد سيارتك في أقل من دقيقة qsdfqsdf بإضاءة
+                مذهلة.</span
+              >
+            </div>
+          </div>
+        </div>
+        <style>
+          .cta-section {
+            background-color: #ffeeef;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 24px 20px;
+          }
+
+          .cta-section-text-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .cta-section-header {
+            text-align: center;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin: 0;
+          }
+          .cta-section-description {
+            color: var(--content-color-secondary);
+            text-align: center;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            width: 250px;
+          }
+
+          .cta-section-price-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+          }
+          .cta-section-price-container .old-price {
+            color: var(--content-color-secondary);
+            text-align: center;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-decoration: line-through;
+          }
+          .cta-section-price-container .price {
+            color: var(--content-color-secondary);
+            text-align: center;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
+          }
+
+          .cta-btn-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+          }
+          .side-lines {
+            background-color: var(--content-color-invert);
+            box-shadow: 0px 0px 7.1px 0px rgba(0, 0, 0, 0.24);
+            width: 70px;
+            height: 2.5px;
+            border-radius: 8px;
+          }
+
+          #dot-seperator {
+            width: 3px;
+            height: 3px;
+            background-color: var(--content-color);
+            border-radius: 50%;
+          }
+        </style>
+        <div class="cta-section">
+          <div class="cta-section-text-container">
+            <h3 class="cta-section-header">
+              لا تفوت الفرصة - أنر سيارتك اليوم!
+            </h3>
+            <span class="cta-section-description"
+              >اطلب الآن واستمتع بخصم ٥٠٪ مع شحن سريع ودفع عند الاستلام!</span
+            >
+          </div>
+
+          <div id="dot-seperator"></div>
+          <div class="cta-section-price-container">
+            <span class="price">٢٩٩ ريال سعودي</span>
+            <span class="old-price">١٩٩ ريال سعودي</span>
+          </div>
+
+          <div class="cta-btn-container">
+            <div class="side-lines side-line-right"></div>
+            <style>
+              .cta-button {
+                width: 250px;
+                height: 50px;
+                background-color: var(--cta-btn-color);
+                color: var(--content-color-invert);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50px;
+                box-shadow: 0px 0px 7.1px 0px rgba(0, 0, 0, 0.24);
+                outline: none;
+                border: none;
+
+                text-align: center;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                position: relative;
+                overflow: hidden;
+                transition: 0.1s;
+              }
+              .cta-button:hover::after {
+                content: "";
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(
+                  to right,
+                  rgba(255, 255, 255, 0) 30%,
+                  rgba(255, 255, 255, 0.1) 50%,
+                  rgba(255, 255, 255, 0) 70%
+                );
+                transform: rotate(-15deg);
+                animation: shine 1.5s infinite;
+              }
+              .cta-button:active {
+                background-color: var(--cta-btn-color) !important;
+                transform: scale(0.992); /* Mimic a "pressed" effect */
+              }
+              .cta-button:hover,
+              .cta-button:focus {
+                background-color: var(--cta-btn-color-hover);
+              }
+
+              @keyframes shine {
+                0% {
+                  left: -150%;
+                }
+                100% {
+                  left: 150%;
+                }
+              }
+            </style>
+            <button class="cta-button">➔ اطلب الآن بخصم ٥٠٪</button>
+            <div class="side-lines side-line-left"></div>
+          </div>
+        </div>
+      </section>
+      <section class="customer-reviews-section">
+        <div
+          class="accent-pattern-container"
+          style="
+            position: absolute;
+            bottom: 0;
+            opacity: 0.7;
+            width: 100%;
+            height: 110%;
+            z-index: -9;
+            overflow: hidden;
+          "
+        >
+          <img
+            src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739463205/accent_pattern_ylpjyb.png"
+            style="transform: rotate(0deg); object-fit: cover"
+          />
+        </div>
+        <div
+          class="accent-pattern-container"
+          style="
+            position: absolute;
+            bottom: 0;
+            opacity: 0.7;
+            width: 100%;
+            height: 48%;
+            z-index: -9;
+            overflow: hidden;
+          "
+        >
+          <img
+            src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739463205/accent_pattern_ylpjyb.png"
+            style="transform: rotate(180deg); object-fit: cover"
+          />
+        </div>
+        <div class="section-header-container">
+          <h1 class="section-header">
+            ما يقول عملاؤنا عن أضواء LED الخاصة بنا
+          </h1>
+          <h1 class="section-header-accent">آراء العملاء</h1>
+        </div>
+        <div class="section-content">
+          <style>
+            .simple-review-container {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              gap: 2px;
+            }
+            .simple-review-container .customer-photo-container {
+              width: 120px;
+              height: 120px;
+              border-radius: 50%;
+              overflow: hidden;
+              box-shadow: 0px 1.682px 11.017px 0px rgba(0, 0, 0, 0.25);
+            }
+            .simple-review-container .customer-photo-container img {
+              width: 100%;
+              object-fit: cover;
+            }
+            .simple-review-container span.customer-name {
+              color: var(--content-color);
+              text-align: center;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+            }
+            .simple-review-container p.review-phrase {
+              width: 275px;
+              color: var(--content-color);
+              text-align: center;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+
+            .simple-review-container #dot-seperator {
+              margin: 5px 0;
+            }
+          </style>
+
+          <div class="simple-review-container">
+            <div class="customer-photo-container">
+              <img
+                src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739464491/Rectangle_146_csqrl2.png"
+                alt=""
+              />
+            </div>
+            <span class="customer-name">محمد من الرياض</span>
+            <div class="review-stars">
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div id="dot-seperator" class="dot-4px"></div>
+            <p class="review-phrase">
+              الأضواء رائعة وسهلة التركيب! غيرت جو سيارتي بالكامل. شكرًا!
+            </p>
+          </div>
+          <style>
+            .simple-review-container {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              gap: 2px;
+            }
+            .simple-review-container .customer-photo-container {
+              width: 120px;
+              height: 120px;
+              border-radius: 50%;
+              overflow: hidden;
+              box-shadow: 0px 1.682px 11.017px 0px rgba(0, 0, 0, 0.25);
+            }
+            .simple-review-container .customer-photo-container img {
+              width: 100%;
+              object-fit: cover;
+            }
+            .simple-review-container span.customer-name {
+              color: var(--content-color);
+              text-align: center;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+            }
+            .simple-review-container p.review-phrase {
+              width: 275px;
+              color: var(--content-color);
+              text-align: center;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+
+            .simple-review-container #dot-seperator {
+              margin: 5px 0;
+            }
+          </style>
+
+          <div class="simple-review-container">
+            <div class="customer-photo-container">
+              <img
+                src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739464491/Rectangle_146_csqrl2.png"
+                alt=""
+              />
+            </div>
+            <span class="customer-name">محمد من الرياض</span>
+            <div class="review-stars">
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div id="dot-seperator" class="dot-4px"></div>
+            <p class="review-phrase">
+              الأضواء رائعة وسهلة التركيب! غيرت جو سيارتي بالكامل. شكرًا!
+            </p>
+          </div>
+          <style>
+            .simple-review-container {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              gap: 2px;
+            }
+            .simple-review-container .customer-photo-container {
+              width: 120px;
+              height: 120px;
+              border-radius: 50%;
+              overflow: hidden;
+              box-shadow: 0px 1.682px 11.017px 0px rgba(0, 0, 0, 0.25);
+            }
+            .simple-review-container .customer-photo-container img {
+              width: 100%;
+              object-fit: cover;
+            }
+            .simple-review-container span.customer-name {
+              color: var(--content-color);
+              text-align: center;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+            }
+            .simple-review-container p.review-phrase {
+              width: 275px;
+              color: var(--content-color);
+              text-align: center;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+
+            .simple-review-container #dot-seperator {
+              margin: 5px 0;
+            }
+          </style>
+
+          <div class="simple-review-container">
+            <div class="customer-photo-container">
+              <img
+                src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739464491/Rectangle_146_csqrl2.png"
+                alt=""
+              />
+            </div>
+            <span class="customer-name">محمد من الرياض</span>
+            <div class="review-stars">
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.02036 0.262939L10.1859 4.65004L15.0285 5.35787L11.5244 8.77084L12.3514 13.5925L8.02036 11.3148L3.68932 13.5925L4.51628 8.77084L1.01221 5.35787L5.85484 4.65004L8.02036 0.262939Z"
+                  fill="#FFEE00"
+                  stroke="black"
+                  stroke-width="0.336391"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div id="dot-seperator" class="dot-4px"></div>
+            <p class="review-phrase">
+              الأضواء رائعة وسهلة التركيب! غيرت جو سيارتي بالكامل. شكرًا!
+            </p>
+          </div>
+        </div>
+
+        <style>
+          .cta-section {
+            background-color: #ffeeef;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 24px 20px;
+          }
+
+          .cta-section-text-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .cta-section-header {
+            text-align: center;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin: 0;
+          }
+          .cta-section-description {
+            color: var(--content-color-secondary);
+            text-align: center;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            width: 250px;
+          }
+
+          .cta-btn-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+          }
+          .side-lines {
+            background-color: var(--content-color-invert);
+            box-shadow: 0px 0px 7.1px 0px rgba(0, 0, 0, 0.24);
+            width: 70px;
+            height: 2.5px;
+            border-radius: 8px;
+          }
+        </style>
+        <div class="cta-section">
+          <div class="cta-section-text-container">
+            <h3 class="cta-section-header">انضم إلى آلاف العملاء السعداء</h3>
+            <span class="cta-section-description"
+              >اطلب الآن واستمتع بخصم ٥٠٪ مع توصيل سريع وضمان استرجاع ٣٠
+              يومًا!</span
+            >
+          </div>
+
+          <div class="cta-btn-container">
+            <div class="side-lines side-line-right"></div>
+            <style>
+              .cta-button {
+                width: 250px;
+                height: 50px;
+                background-color: var(--cta-btn-color);
+                color: var(--content-color-invert);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50px;
+                box-shadow: 0px 0px 7.1px 0px rgba(0, 0, 0, 0.24);
+                outline: none;
+                border: none;
+
+                text-align: center;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                position: relative;
+                overflow: hidden;
+                transition: 0.1s;
+              }
+              .cta-button:hover::after {
+                content: "";
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(
+                  to right,
+                  rgba(255, 255, 255, 0) 30%,
+                  rgba(255, 255, 255, 0.1) 50%,
+                  rgba(255, 255, 255, 0) 70%
+                );
+                transform: rotate(-15deg);
+                animation: shine 1.5s infinite;
+              }
+              .cta-button:active {
+                background-color: var(--cta-btn-color) !important;
+                transform: scale(0.992); /* Mimic a "pressed" effect */
+              }
+              .cta-button:hover,
+              .cta-button:focus {
+                background-color: var(--cta-btn-color-hover);
+              }
+
+              @keyframes shine {
+                0% {
+                  left: -150%;
+                }
+                100% {
+                  left: 150%;
+                }
+              }
+            </style>
+            <button class="cta-button">➔ اطلب الآن بخصم ٥٠٪</button>
+            <div class="side-lines side-line-left"></div>
+          </div>
+        </div>
+      </section>
+      <style>
+        .faq-section .section-content {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+      </style>
+
+      <section class="faq-section">
+        <div
+          class="accent-pattern-container"
+          style="
+            position: absolute;
+            bottom: 0;
+            opacity: 0.7;
+            width: 100%;
+            height: 90%;
+            z-index: -9;
+            overflow: hidden;
+          "
+        >
+          <img
+            src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739463205/accent_pattern_ylpjyb.png"
+            style="transform: rotate(180deg); object-fit: cover"
+          />
+        </div>
+        <div class="section-header-container">
+          <h1 class="section-header">أسئلة شائعة</h1>
+          <h1 class="section-header-accent">أسئلة شائعة</h1>
+        </div>
+        <div class="section-content">
+          <style>
+            .faq-element-container {
+              width: 100%;
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              padding: 0 25px;
+              transition: all 0.3s; /* Changed to all for background color transition */
+              overflow: hidden; /* Added for smooth height transitions */
+            }
+
+            /* Added base styling for answer container */
+            .faq-answer-container {
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.3s, padding 0.3s;
+              padding: 0 20px; /* Initial closed state padding */
+            }
+
+            .faq-element-container.open .faq-answer-container {
+              max-height: 300px; /* Adjust this value based on your tallest content */
+              padding: 10px 20px 20px 20px; /* Expanded state padding */
+              transition: max-height 0.3s, padding 0.3s;
+              position: relative;
+            }
+
+            /* Removed display: none in favor of max-height transition */
+            .faq-element-container:not(.open) .faq-answer-container {
+              max-height: 0;
+              padding: 0 20px; /* Match horizontal padding with open state */
+            }
+
+            /* Rest of your existing CSS */
+            .faq-element-container:not(:last-child)::after {
+              content: " ";
+              position: absolute;
+              bottom: 0;
+              width: 90%;
+              height: 2.5px;
+              border-radius: 8px;
+              background-color: var(--content-color-secondary);
+            }
+
+            .faq-element-container.open {
+              background-color: var(--open-faq-question-bgc);
+            }
+
+            .faq-element-container.open .faq-answer-container::before {
+              content: " ";
+              position: absolute;
+              top: 0;
+              right: 50%;
+              transform: translateX(50%);
+              width: 90%;
+              height: 2.5px;
+              border-radius: 8px;
+              background-color: var(--content-color-invert);
+            }
+
+            .faq-answer-container span.answer {
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+
+            .faq-element-container .faq-question-container {
+              height: 70px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 0 20px;
+              cursor: pointer;
+            }
+
+            .faq-question-container .question {
+              text-align: right;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+            }
+
+            .faq-question-container svg {
+              width: 13px;
+              object-fit: contain;
+              transition: transform 0.2s;
+            }
+            .faq-element-container.open .faq-question-container svg {
+              transform: rotate(180deg);
+            }
+          </style>
+
+          <div class="faq-element-container">
+            <div class="faq-question-container">
+              <span class="question">هل التركيب صعب؟</span>
+              <svg
+                width="12"
+                height="7"
+                viewBox="0 0 12 7"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  id="Vector"
+                  d="M1 1L6 6L11 1"
+                  stroke="black"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="faq-answer-container">
+              <span class="answer"
+                >لا، التركيب سهل للغاية ولا يتطلب أي أدوات. يمكنك تثبيت الأضواء
+                في أقل من دقيقة!</span
+              >
+            </div>
+          </div>
+
+          <style>
+            .faq-element-container {
+              width: 100%;
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              padding: 0 25px;
+              transition: all 0.3s; /* Changed to all for background color transition */
+              overflow: hidden; /* Added for smooth height transitions */
+            }
+
+            /* Added base styling for answer container */
+            .faq-answer-container {
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.3s, padding 0.3s;
+              padding: 0 20px; /* Initial closed state padding */
+            }
+
+            .faq-element-container.open .faq-answer-container {
+              max-height: 300px; /* Adjust this value based on your tallest content */
+              padding: 10px 20px 20px 20px; /* Expanded state padding */
+              transition: max-height 0.3s, padding 0.3s;
+              position: relative;
+            }
+
+            /* Removed display: none in favor of max-height transition */
+            .faq-element-container:not(.open) .faq-answer-container {
+              max-height: 0;
+              padding: 0 20px; /* Match horizontal padding with open state */
+            }
+
+            /* Rest of your existing CSS */
+            .faq-element-container:not(:last-child)::after {
+              content: " ";
+              position: absolute;
+              bottom: 0;
+              width: 90%;
+              height: 2.5px;
+              border-radius: 8px;
+              background-color: var(--content-color-secondary);
+            }
+
+            .faq-element-container.open {
+              background-color: var(--open-faq-question-bgc);
+            }
+
+            .faq-element-container.open .faq-answer-container::before {
+              content: " ";
+              position: absolute;
+              top: 0;
+              right: 50%;
+              transform: translateX(50%);
+              width: 90%;
+              height: 2.5px;
+              border-radius: 8px;
+              background-color: var(--content-color-invert);
+            }
+
+            .faq-answer-container span.answer {
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+
+            .faq-element-container .faq-question-container {
+              height: 70px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 0 20px;
+              cursor: pointer;
+            }
+
+            .faq-question-container .question {
+              text-align: right;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+            }
+
+            .faq-question-container img {
+              width: 13px;
+              object-fit: contain;
+              transition: transform 0.2s;
+            }
+            .faq-element-container.open .faq-question-container img {
+              transform: rotate(180deg);
+            }
+          </style>
+
+          <div class="faq-element-container">
+            <div class="faq-question-container">
+              <span class="question">هل التركيب صعب؟</span>
+              <svg
+                width="12"
+                height="7"
+                viewBox="0 0 12 7"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  id="Vector"
+                  d="M1 1L6 6L11 1"
+                  stroke="black"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="faq-answer-container">
+              <span class="answer"
+                >لا، التركيب سهل للغاية ولا يتطلب أي أدوات. يمكنك تثبيت الأضواء
+                في أقل من دقيقة!</span
+              >
+            </div>
+          </div>
+
+          <style>
+            .faq-element-container {
+              width: 100%;
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              padding: 0 25px;
+              transition: all 0.3s; /* Changed to all for background color transition */
+              overflow: hidden; /* Added for smooth height transitions */
+            }
+
+            /* Added base styling for answer container */
+            .faq-answer-container {
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.3s, padding 0.3s;
+              padding: 0 20px; /* Initial closed state padding */
+            }
+
+            .faq-element-container.open .faq-answer-container {
+              max-height: 300px; /* Adjust this value based on your tallest content */
+              padding: 10px 20px 20px 20px; /* Expanded state padding */
+              transition: max-height 0.3s, padding 0.3s;
+              position: relative;
+            }
+
+            /* Removed display: none in favor of max-height transition */
+            .faq-element-container:not(.open) .faq-answer-container {
+              max-height: 0;
+              padding: 0 20px; /* Match horizontal padding with open state */
+            }
+
+            /* Rest of your existing CSS */
+            .faq-element-container:not(:last-child)::after {
+              content: " ";
+              position: absolute;
+              bottom: 0;
+              width: 90%;
+              height: 2.5px;
+              border-radius: 8px;
+              background-color: var(--content-color-secondary);
+            }
+
+            .faq-element-container.open {
+              background-color: var(--open-faq-question-bgc);
+            }
+
+            .faq-element-container.open .faq-answer-container::before {
+              content: " ";
+              position: absolute;
+              top: 0;
+              right: 50%;
+              transform: translateX(50%);
+              width: 90%;
+              height: 2.5px;
+              border-radius: 8px;
+              background-color: var(--content-color-invert);
+            }
+
+            .faq-answer-container span.answer {
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+
+            .faq-element-container .faq-question-container {
+              height: 70px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 0 20px;
+              cursor: pointer;
+            }
+
+            .faq-question-container .question {
+              text-align: right;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+            }
+
+            .faq-question-container img {
+              width: 13px;
+              object-fit: contain;
+              transition: transform 0.2s;
+            }
+            .faq-element-container.open .faq-question-container img {
+              transform: rotate(180deg);
+            }
+          </style>
+
+          <div class="faq-element-container">
+            <div class="faq-question-container">
+              <span class="question">هل التركيب صعب؟</span>
+              <svg
+                width="12"
+                height="7"
+                viewBox="0 0 12 7"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  id="Vector"
+                  d="M1 1L6 6L11 1"
+                  stroke="black"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="faq-answer-container">
+              <span class="answer"
+                >لا، التركيب سهل للغاية ولا يتطلب أي أدوات. يمكنك تثبيت الأضواء
+                في أقل من دقيقة!</span
+              >
+            </div>
+          </div>
+
+          <style>
+            .faq-element-container {
+              width: 100%;
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              padding: 0 25px;
+              transition: all 0.3s; /* Changed to all for background color transition */
+              overflow: hidden; /* Added for smooth height transitions */
+            }
+
+            /* Added base styling for answer container */
+            .faq-answer-container {
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.3s, padding 0.3s;
+              padding: 0 20px; /* Initial closed state padding */
+            }
+
+            .faq-element-container.open .faq-answer-container {
+              max-height: 300px; /* Adjust this value based on your tallest content */
+              padding: 10px 20px 20px 20px; /* Expanded state padding */
+              transition: max-height 0.3s, padding 0.3s;
+              position: relative;
+            }
+
+            /* Removed display: none in favor of max-height transition */
+            .faq-element-container:not(.open) .faq-answer-container {
+              max-height: 0;
+              padding: 0 20px; /* Match horizontal padding with open state */
+            }
+
+            /* Rest of your existing CSS */
+            .faq-element-container:not(:last-child)::after {
+              content: " ";
+              position: absolute;
+              bottom: 0;
+              width: 90%;
+              height: 2.5px;
+              border-radius: 8px;
+              background-color: var(--content-color-secondary);
+            }
+
+            .faq-element-container.open {
+              background-color: var(--open-faq-question-bgc);
+            }
+
+            .faq-element-container.open .faq-answer-container::before {
+              content: " ";
+              position: absolute;
+              top: 0;
+              right: 50%;
+              transform: translateX(50%);
+              width: 90%;
+              height: 2.5px;
+              border-radius: 8px;
+              background-color: var(--content-color-invert);
+            }
+
+            .faq-answer-container span.answer {
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+
+            .faq-element-container .faq-question-container {
+              height: 70px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 0 20px;
+              cursor: pointer;
+            }
+
+            .faq-question-container .question {
+              text-align: right;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+            }
+
+            .faq-question-container img {
+              width: 13px;
+              object-fit: contain;
+              transition: transform 0.2s;
+            }
+            .faq-element-container.open .faq-question-container img {
+              transform: rotate(180deg);
+            }
+          </style>
+
+          <div class="faq-element-container">
+            <div class="faq-question-container">
+              <span class="question">هل التركيب صعب؟</span>
+              <svg
+                width="12"
+                height="7"
+                viewBox="0 0 12 7"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  id="Vector"
+                  d="M1 1L6 6L11 1"
+                  stroke="black"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="faq-answer-container">
+              <span class="answer"
+                >لا، التركيب سهل للغاية ولا يتطلب أي أدوات. يمكنك تثبيت الأضواء
+                في أقل من دقيقة!</span
+              >
+            </div>
+          </div>
+
+          <style>
+            .faq-element-container {
+              width: 100%;
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              padding: 0 25px;
+              transition: all 0.3s; /* Changed to all for background color transition */
+              overflow: hidden; /* Added for smooth height transitions */
+            }
+
+            /* Added base styling for answer container */
+            .faq-answer-container {
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.3s, padding 0.3s;
+              padding: 0 20px; /* Initial closed state padding */
+            }
+
+            .faq-element-container.open .faq-answer-container {
+              max-height: 300px; /* Adjust this value based on your tallest content */
+              padding: 10px 20px 20px 20px; /* Expanded state padding */
+              transition: max-height 0.3s, padding 0.3s;
+              position: relative;
+            }
+
+            /* Removed display: none in favor of max-height transition */
+            .faq-element-container:not(.open) .faq-answer-container {
+              max-height: 0;
+              padding: 0 20px; /* Match horizontal padding with open state */
+            }
+
+            /* Rest of your existing CSS */
+            .faq-element-container:not(:last-child)::after {
+              content: " ";
+              position: absolute;
+              bottom: 0;
+              width: 90%;
+              height: 2.5px;
+              border-radius: 8px;
+              background-color: var(--content-color-secondary);
+            }
+
+            .faq-element-container.open {
+              background-color: var(--open-faq-question-bgc);
+            }
+
+            .faq-element-container.open .faq-answer-container::before {
+              content: " ";
+              position: absolute;
+              top: 0;
+              right: 50%;
+              transform: translateX(50%);
+              width: 90%;
+              height: 2.5px;
+              border-radius: 8px;
+              background-color: var(--content-color-invert);
+            }
+
+            .faq-answer-container span.answer {
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+
+            .faq-element-container .faq-question-container {
+              height: 70px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 0 20px;
+              cursor: pointer;
+            }
+
+            .faq-question-container .question {
+              text-align: right;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+            }
+
+            .faq-question-container img {
+              width: 13px;
+              object-fit: contain;
+              transition: transform 0.2s;
+            }
+            .faq-element-container.open .faq-question-container img {
+              transform: rotate(180deg);
+            }
+          </style>
+
+          <div class="faq-element-container">
+            <div class="faq-question-container">
+              <span class="question">هل التركيب صعب؟</span>
+              <svg
+                width="12"
+                height="7"
+                viewBox="0 0 12 7"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  id="Vector"
+                  d="M1 1L6 6L11 1"
+                  stroke="black"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="faq-answer-container">
+              <span class="answer"
+                >لا، التركيب سهل للغاية ولا يتطلب أي أدوات. يمكنك تثبيت الأضواء
+                في أقل من دقيقة!</span
+              >
+            </div>
+          </div>
+        </div>
+        <style>
+          .cta-section {
+            background-color: #ffeeef;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 24px 20px;
+          }
+
+          .cta-btn-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+          }
+          .side-lines {
+            background-color: var(--content-color-invert);
+            box-shadow: 0px 0px 7.1px 0px rgba(0, 0, 0, 0.24);
+            width: 70px;
+            height: 2.5px;
+            border-radius: 8px;
+          }
+
+          #dot-seperator {
+            width: 3px;
+            height: 3px;
+            background-color: var(--content-color);
+            border-radius: 50%;
+          }
+        </style>
+        <div class="cta-section">
+          <div class="cta-btn-container">
+            <div class="side-lines side-line-right"></div>
+            <style>
+              .cta-button {
+                width: 250px;
+                height: 50px;
+                background-color: var(--cta-btn-color);
+                color: var(--content-color-invert);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50px;
+                box-shadow: 0px 0px 7.1px 0px rgba(0, 0, 0, 0.24);
+                outline: none;
+                border: none;
+
+                text-align: center;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                position: relative;
+                overflow: hidden;
+                transition: 0.1s;
+              }
+              .cta-button:hover::after {
+                content: "";
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(
+                  to right,
+                  rgba(255, 255, 255, 0) 30%,
+                  rgba(255, 255, 255, 0.1) 50%,
+                  rgba(255, 255, 255, 0) 70%
+                );
+                transform: rotate(-15deg);
+                animation: shine 1.5s infinite;
+              }
+              .cta-button:active {
+                background-color: var(--cta-btn-color) !important;
+                transform: scale(0.992); /* Mimic a "pressed" effect */
+              }
+              .cta-button:hover,
+              .cta-button:focus {
+                background-color: var(--cta-btn-color-hover);
+              }
+
+              @keyframes shine {
+                0% {
+                  left: -150%;
+                }
+                100% {
+                  left: 150%;
+                }
+              }
+            </style>
+            <button class="cta-button">➔ اطلب الآن بخصم ٥٠٪</button>
+            <div class="side-lines side-line-left"></div>
+          </div>
+        </div>
+      </section>
+      <style>
+        footer {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 5px;
+          background-color: var(--footer-bgc);
+          padding: 10px 0 5px 0;
+        }
+        footer span,
+        footer u {
+          color: var(--content-color-invert);
+        }
+        footer .contact-phrase {
+          text-align: center;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+        footer .copyright-phrase,
+        footer u {
+          text-align: center;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: normal;
+          margin-top: 10px;
+        }
+      </style>
+      <footer>
+        <div class="logo-container">
+          <img
+            src="https://res.cloudinary.com/djt68ynkw/image/upload/v1739463205/logo-white_ypmcvv.svg"
+            alt=""
+          />
+        </div>
+        <div id="dot-seperator" class="dot-4px dot-color-invert"></div>
+        <span class="contact-phrase"
+          >🔒 دفع آمن • <u>officiallamsaa@gmail.com</u> ✉️</span
+        >
+        <span class="copyright-phrase">© 2023 لمسة. جميع الحقوق محفوظة.</span>
+      </footer>
+    </main>
+
+    <!-- Countdown timer -->
+    <script>
+      // =====================
+      // GLOBAL CONFIGURATION
+      // =====================
+      const config = {
+        resetHours: 5, // Hours to reset timer when low
+        minRemainingToReset: 180000, // 1 minute in milliseconds (60000 = 60s × 1000)
+        storageKey: "countdownEndTime",
+        expiredMessage: "انتهى العرض!",
+        showDays: false,
+      };
+      // =====================
+
+      function startCountdown() {
+        const countdownContainer = document.getElementById(
+          "urgency-countdown-container"
+        );
+
+        // Get and parse stored time
+        let targetTime = localStorage.getItem(config.storageKey);
+        targetTime = targetTime ? parseInt(targetTime, 10) : null; // Convert to number
+
+        // Reset timer if invalid or low remaining time
+        if (
+          !targetTime ||
+          targetTime - Date.now() < config.minRemainingToReset
+        ) {
+          const resetDuration = config.resetHours * 60 * 60 * 1000;
+          targetTime = Date.now() + resetDuration;
+          localStorage.setItem(config.storageKey, targetTime.toString());
+        }
+
+        function updateTimer() {
+          const now = Date.now();
+          const distance = targetTime - now;
+
+          if (distance < 0) {
+            clearInterval(timer);
+            countdownContainer.innerHTML = config.expiredMessage;
+            localStorage.removeItem(config.storageKey);
+            return;
+          }
+
+          // Calculate time units
+          const hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (distance % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          // Format numbers
+          const formatNumber = (num) =>
+            num.toLocaleString("ar-SA", { minimumIntegerDigits: 2 });
+
+          // Update display
+          document.getElementById("countdown-hours").textContent =
+            formatNumber(hours);
+          document.getElementById("countdown-minutes").textContent =
+            formatNumber(minutes);
+          document.getElementById("countdown-seconds").textContent =
+            formatNumber(seconds);
+        }
+
+        // Start updates
+        updateTimer();
+        const timer = setInterval(updateTimer, 1000);
+      }
+
+      // MutationObserver code remains the same
+      const countdownObserver = new MutationObserver(
+        (mutationsList, observer) => {
+          for (const mutation of mutationsList) {
+            if (
+              mutation.type === "childList" &&
+              document.getElementById("urgency-countdown-container")
+            ) {
+              startCountdown();
+              observer.disconnect();
+            }
+          }
+        }
+      );
+
+      countdownObserver.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
+    </script>
+
+    <!-- Carousel Code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      // Function to initialize carousel without auto-scrolling
+      function initializeCarousel(container) {
+        if (!container) {
+          console.error("Invalid container passed to initializeCarousel");
+          return;
+        }
+
+        // Store the current scroll position
+        const scrollY = window.scrollY;
+
+        // Force layout calculations without affecting scroll
+        container.style.display = "block";
+        container.style.height = "auto";
+        void container.offsetHeight; // Reflow
+
+        try {
+          const carousel = container.querySelector(".carousel");
+          if (!carousel) throw new Error("Carousel element not found");
+
+          // Initialize Materialize carousel
+          const instance = M.Carousel.init(carousel, {
+            fullWidth: false,
+            indicators: false,
+            numVisible: 3,
+            dist: -5,
+            onCycleTo: (current) => {
+              updateCarouselDescription(current);
+            },
+          });
+
+          // Cleanup
+          container.classList.remove("carousel-loading");
+          container.classList.add("initialized");
+          container.style.opacity = "1";
+          container.style.visibility = "visible";
+          clearTimeout(container.dataset.fallback);
+
+          // Restore the original scroll position
+          window.scrollTo({ top: scrollY, behavior: "auto" });
+
+          // Create dots
+          createDots(document.querySelectorAll(".carousel-item").length);
+        } catch (error) {
+          console.error("Carousel initialization failed:", error);
+          // Reset and retry
+          container.style.opacity = "0";
+          container.style.visibility = "hidden";
+          setTimeout(() => initializeCarousel(container), 500);
+        }
+      }
+
+      // Intersection Observer setup
+      carouselLoadingCounter = 0;
+      function setupCarouselVisibility() {
+        const container = document.querySelector(".carousel-container");
+
+        if (!container) {
+          console.error("Carousel container not found!");
+          carouselLoadingCounter++;
+          if (carouselLoadingCounter < 50) {
+            setTimeout(setupCarouselVisibility, 100); // Retry after 100ms
+          }
+          return;
+        }
+
+        // Add temporary loading class
+        container.classList.add("carousel-loading");
+
+        // Initial hidden state with layout preservation
+        container.style.opacity = "0";
+        container.style.visibility = "hidden";
+        container.style.height = `${container.scrollHeight}px`; // Preserve space
+        container.style.overflow = "hidden";
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // Double-check container existence
+                const currentContainer = document.querySelector(
+                  ".carousel-container"
+                );
+                if (!currentContainer) return;
+
+                // Initialize when 1% visible
+                initializeCarousel(currentContainer);
+                observer.unobserve(currentContainer);
+              }
+            });
+          },
+          {
+            threshold: 0.01, // 1% visibility threshold
+            rootMargin: "50% 0px", // 50% vertical margin
+          }
+        );
+
+        observer.observe(container);
+
+        // Fallback initialization with existence check
+        const fallback = setTimeout(() => {
+          const currentContainer = document.querySelector(
+            ".carousel-container"
+          );
+          if (
+            currentContainer &&
+            !currentContainer.classList.contains("initialized")
+          ) {
+            initializeCarousel(currentContainer);
+          }
+        }, 3000);
+
+        // Cleanup observer and timeout
+        container.dataset.observer = observer;
+        container.dataset.fallback = fallback;
+      }
+
+      // Start initialization process with existence check
+      document.addEventListener("DOMContentLoaded", () => {
+        if (!document.querySelector(".carousel-container")) {
+          console.warn("Carousel container not found on DOM load, retrying...");
+          setTimeout(setupCarouselVisibility, 500);
+        } else {
+          setupCarouselVisibility();
+        }
+      });
+      // Function to create dots
+      function createDots(totalItems) {
+        const container = document.querySelector(".dots-container");
+        container.innerHTML = Array(totalItems)
+          .fill('<div class="dot"></div>')
+          .join("");
+        container.querySelector(".dot").classList.add("active");
+      }
+
+      // Function to update dots
+      function updateDots(activeIndex) {
+        document.querySelectorAll(".dot").forEach((dot, index) => {
+          dot.classList.toggle("active", index === activeIndex);
+        });
+      }
+
+      // Function to update carousel description
+      function updateCarouselDescription(activeElement) {
+        const activeIndex = Array.from(
+          activeElement.parentElement.children
+        ).indexOf(activeElement);
+        const descriptionItems = document.querySelectorAll(
+          ".description-carousel-item"
+        );
+
+        if (activeIndex >= 0 && activeIndex < descriptionItems.length) {
+          descriptionItems.forEach((item) => item.classList.remove("active"));
+          descriptionItems[activeIndex].classList.add("active");
+          descriptionItems[activeIndex].scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+
+          updateDots(activeIndex); // Update dots
+        }
+      }
+
+      // Wait for all resources to load
+      window.onload = function () {
+        const container = document.querySelector(".carousel-container");
+        const carousel = document.querySelector(".carousel");
+
+        // Ensure the container is visible for initialization
+        container.style.visibility = "visible";
+        container.style.opacity = "1";
+        void container.offsetHeight; // Force reflow
+
+        // Initialize Materialize carousel
+        const instance = M.Carousel.init(carousel, {
+          fullWidth: false,
+          indicators: false,
+          numVisible: 3,
+          dist: -10,
+          duration: 300,
+          shift: 0,
+          padding: 20,
+        });
+
+        // Create dots
+        createDots(document.querySelectorAll(".carousel-item").length);
+
+        // Show container after initialization
+        container.classList.add("initialized");
+
+        // Fallback timeout
+        setTimeout(() => {
+          if (!container.classList.contains("initialized")) {
+            container.style.visibility = "visible";
+            container.style.opacity = "1";
+          }
+        }, 1000);
+
+        // Set up MutationObserver to track active carousel item
+        const carouselObserver = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            if (
+              mutation.type === "attributes" &&
+              mutation.attributeName === "class"
+            ) {
+              const target = mutation.target;
+              if (target.classList.contains("active")) {
+                // Active class was added to this element
+                updateCarouselDescription(target);
+              }
+            }
+          });
+        });
+
+        // Observe all carousel items
+        const carouselItems = document.querySelectorAll(".carousel-item");
+        carouselItems.forEach((item) => {
+          carouselObserver.observe(item, {
+            attributes: true, // Watch for attribute changes
+            attributeFilter: ["class"], // Only watch for class changes
+          });
+        });
+
+        // Initial call for the first active item
+        const initialActive = document.querySelector(".carousel-item.active");
+        if (initialActive) {
+          updateCarouselDescription(initialActive);
+        }
+      };
+    </script>
+
+    <!-- FAQ Functionalities -->
+    <script>
+      document.addEventListener("click", (event) => {
+        const faqItem = event.target.closest(".faq-element-container");
+        if (!faqItem) return;
+
+        document.querySelectorAll(".faq-element-container").forEach((el) => {
+          if (el !== faqItem) el.classList.remove("open");
+        });
+
+        faqItem.classList.toggle("open");
+      });
+    </script>
+
+    <!-- Handeling cta buttons -->
+    <script>
+      document.addEventListener("click", (event) => {
+        const ctaBtn = event.target.closest(".cta-button");
+        const checkoutFormModal = document.querySelector(
+          ".checkout-form-container"
+        );
+        const checkoutForm = checkoutFormModal.querySelector(".checkout-form");
+
+        // Opening and closing the form
+        if (ctaBtn) {
+          checkoutFormModal.classList.add("visible");
+          document.body.classList.add("scroll-prevented");
+          return 0;
+        }
+        const checkoutFormBlurBg = event.target.closest("#bg-blur");
+        const closeCheckoutBtn = event.target.closest(
+          ".checkout-form .exit-form-btn"
+        );
+        if (checkoutFormBlurBg || closeCheckoutBtn) {
+          document.body.classList.remove("scroll-prevented");
+          checkoutFormModal.classList.remove("visible");
+          setTimeout(() => {
+            checkoutForm.classList.remove("checked-out");
+          }, 500);
+          return 0;
+        }
+
+        // Handeling form submittion
+        const checkoutBtn = event.target.closest(
+          ".checkout-form #order-now-btn"
+        );
+        if (checkoutBtn) {
+          if (verifyFormInputs()) {
+            checkoutForm.classList.add("checked-out");
+
+            // Checkout
+            checkout();
+          }
+        }
+      });
+
+      function verifyFormInputs() {
+        const requiredInputs = document.querySelectorAll(
+          ".checkout-form .inputs-group .input-required"
+        );
+        requiredInputs.forEach((inp) => inp.classList.remove("input-error"));
+        for (let i = 0; i < requiredInputs.length; i++) {
+          let inp = requiredInputs[i];
+          if (inp.querySelector("input").value == "") {
+            inp.classList.add("input-error");
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function checkout() {
+        // Function to set value and trigger events
+        function setFormValue(selector, value) {
+          const input = document.querySelector(selector);
+          if (input) {
+            // Set the value
+            input.value = value;
+
+            // Trigger input event
+            const event = new Event("input", { bubbles: true });
+            input.dispatchEvent(event);
+
+            // Trigger change event (if needed)
+            const changeEvent = new Event("change", { bubbles: true });
+            input.dispatchEvent(changeEvent);
+          } else {
+            console.error(`Input field with selector "${selector}" not found.`);
+          }
+        }
+
+        // Get values from your custom form
+        const fullName = document.querySelector(
+          "section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(1) > input"
+        ).value;
+
+        const phoneNumber = document.querySelector(
+          "section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(2) > input"
+        ).value;
+
+        const city = document.querySelector(
+          "section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(3) > input"
+        ).value;
+
+        // Set values in YouCan's form
+        setFormValue(
+          "#express-checkout-form > div > div > div:nth-child(2) > input",
+          fullName
+        );
+        setFormValue(
+          "#express-checkout-form > div > div > div:nth-child(3) > input",
+          phoneNumber
+        );
+        setFormValue(
+          "#express-checkout-form > div > div > div:nth-child(4) > input",
+          city
+        );
+
+        // Submit YouCan's form
+        const youcanForm = document.querySelector("#express-checkout-form");
+        if (youcanForm) {
+          youcanForm.submit();
+        } else {
+          console.error("YouCan form not found.");
+        }
+      }
+
+      // Call the checkout function when needed
+      checkout();
+    </script>
+  </body>
+</html>
