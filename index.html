@@ -3806,74 +3806,68 @@
     <!-- Handeling cta buttons -->
     <script>
       document.addEventListener("click", (event) => {
-        const ctaBtn = event.target.closest(".cta-button");
-        const checkoutFormModal = document.querySelector(
-          ".checkout-form-container"
-        );
-        const checkoutForm = checkoutFormModal.querySelector(".checkout-form");
+    const ctaBtn = event.target.closest(".cta-button");
+    const checkoutFormModal = document.querySelector(".checkout-form-container");
+    const checkoutForm = checkoutFormModal.querySelector(".checkout-form");
 
-        // Opening and closing the form
-        if (ctaBtn) {
-          checkoutFormModal.classList.add("visible");
-          document.body.classList.add("scroll-prevented");
-          return 0;
-        }
-        const checkoutFormBlurBg = event.target.closest("#bg-blur");
-        const closeCheckoutBtn = event.target.closest(
-          ".checkout-form .exit-form-btn"
-        );
-        if (checkoutFormBlurBg || closeCheckoutBtn) {
-          document.body.classList.remove("scroll-prevented");
-          checkoutFormModal.classList.remove("visible");
-          setTimeout(() => {
+    // Opening and closing the form
+    if (ctaBtn) {
+        checkoutFormModal.classList.add("visible");
+        document.body.classList.add("scroll-prevented");
+        return 0;
+    }
+    const checkoutFormBlurBg = event.target.closest("#bg-blur");
+    const closeCheckoutBtn = event.target.closest(".checkout-form .exit-form-btn");
+    if (checkoutFormBlurBg || closeCheckoutBtn) {
+        document.body.classList.remove("scroll-prevented");
+        checkoutFormModal.classList.remove("visible");
+        setTimeout(() => {
             checkoutForm.classList.remove("checked-out");
-          }, 500);
-          return 0;
-        }
+        }, 500);
+        return 0;
+    }
 
-        // Handeling form submittion
-        const checkoutBtn = event.target.closest(
-          ".checkout-form #order-now-btn"
-        );
-        if (checkoutBtn) {
-          if (verifyFormInputs()) {
+    // Handling form submission
+    const checkoutBtn = event.target.closest(".checkout-form #order-now-btn");
+    if (checkoutBtn) {
+        if (verifyFormInputs()) {
             checkoutForm.classList.add("checked-out");
 
             // Checkout
             checkout();
-          }
         }
-      });
+    }
+});
 
-      function verifyFormInputs() {
-        const requiredInputs = document.querySelectorAll(
-          ".checkout-form .inputs-group .input-required"
-        );
-        requiredInputs.forEach((inp) => inp.classList.remove("input-error"));
-        for (let i = 0; i < requiredInputs.length; i++) {
-          let inp = requiredInputs[i];
-          if (inp.querySelector("input").value == "") {
+function verifyFormInputs() {
+    const requiredInputs = document.querySelectorAll(".checkout-form .inputs-group .input-required");
+    requiredInputs.forEach((inp) => inp.classList.remove("input-error"));
+    for (let i = 0; i < requiredInputs.length; i++) {
+        let inp = requiredInputs[i];
+        if (inp.querySelector("input").value == "") {
             inp.classList.add("input-error");
             return false;
-          }
         }
-        return true;
-      }
+    }
+    return true;
+}
 
-      function checkout() {
-            // Get form data from the custom form
-            const formData = {
-                name: document.querySelector('section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(1) > input').value,
-                phone: document.querySelector('section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(2) > input').value,
-                city: document.querySelector('section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(3) > input').value,
-            };
+function checkout() {
+    // Get form data from the custom form
+    const formData = {
+        name: document.querySelector('section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(1) > input').value,
+        phone: document.querySelector('section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(2) > input').value,
+        city: document.querySelector('section.checkout-form-container.visible > div.checkout-form > div.form-content > div.form-container > div.inputs-group > div:nth-child(3) > input').value,
+    };
 
-            // Send form data to the parent window
-            window.parent.postMessage(
-                { action: 'formData', data: formData },
-                'https://lamsagcc.github.io/Template-One---Test-page/' // Replace with your GitHub Pages URL
-            );
-        }
+    console.log("Sending form data to parent:", formData);
+
+    // Send form data to the parent window
+    window.parent.postMessage(
+        { action: 'formData', data: formData },
+        'https://lamsagcc.github.io'
+    );
+}
     </script>
   </body>
 </html>
