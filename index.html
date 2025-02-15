@@ -3869,58 +3869,5 @@ function checkout() {
     );
 }
     </script>
-    <!-- Dynamically changing the height of iframe in Youcan -->
-    <script>
-      let lastHeight = 0;
-
-      // Function to notify the parent page of height changes
-      function notifyParent() {
-          const height = document.body.scrollHeight;
-          if (height !== lastHeight) {
-              lastHeight = height;
-              window.parent.postMessage(
-                  { action: 'resize', height: height },
-                  'https://lamsagcc.com' // Use the parent page's origin
-              );
-          }
-      }
-      
-      // Throttle the notifyParent function
-      function throttle(func, limit) {
-          let inThrottle;
-          return function() {
-              const args = arguments;
-              const context = this;
-              if (!inThrottle) {
-                  func.apply(context, args);
-                  inThrottle = true;
-                  setTimeout(() => inThrottle = false, limit);
-              }
-          };
-      }
-      
-      const throttledNotifyParent = throttle(notifyParent, 100);
-      
-      // Debounce the notifyParent function
-      function debounce(func, delay) {
-          let timeout;
-          return function() {
-              const args = arguments;
-              const context = this;
-              clearTimeout(timeout);
-              timeout = setTimeout(() => func.apply(context, args), delay);
-          };
-      }
-      
-      const debouncedNotifyParent = debounce(notifyParent, 200);
-      
-      // Notify the parent page when the content height changes
-      window.addEventListener('resize', throttledNotifyParent);
-      window.addEventListener('load', notifyParent);
-      
-      // Notify the parent page after dynamic content changes
-      const observer = new MutationObserver(debouncedNotifyParent);
-      observer.observe(document.body, { childList: true, subtree: true });
-    </script>
   </body>
 </html>
