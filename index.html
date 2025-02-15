@@ -3869,5 +3869,18 @@ function checkout() {
     );
 }
     </script>
+    <script>
+      // Function to send the iframe height to the parent page
+      function sendHeightToParent() {
+          const height = document.body.scrollHeight;
+          window.parent.postMessage(
+              { action: 'setHeight', height: height },
+              'https://lamsagcc.com' // Use the parent page's origin
+          );
+      }
+      
+      // Send the initial height when the iframe loads
+      window.addEventListener('load', sendHeightToParent);
+    </script>
   </body>
 </html>
