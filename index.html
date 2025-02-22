@@ -3804,8 +3804,9 @@
         faqItem.classList.toggle("open");
       });
     </script>
-
     <!-- Handling Cta buttons and form -->
+    <script>
+      
     
       document.addEventListener("click", (event) => {
     const ctaBtn = event.target.closest(".cta-button");
@@ -3855,7 +3856,7 @@ function verifyFormInputs() {
 }
 
 function checkout() {
-      
+      console.log("CHECKED OUT!")
   // Map custom form values to host form
   const customFormData = {
       first_name: document.querySelector('.form-container input[name="full_name"]').value,
@@ -3883,5 +3884,6 @@ function checkout() {
       return;
   }
 }
+    </script>
   </body>
 </html>
