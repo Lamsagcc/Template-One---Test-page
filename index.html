@@ -3805,53 +3805,5 @@
       });
     </script>
 
-    <!-- Handeling cta buttons -->
-    <script>
-      document.getElementById('order-now-btn').addEventListener('click', function(e) {
-          console.log("BUTTON CLICKED!!!")
-        e.preventDefault();
-      
-        // Map custom form values to host form
-        const customFormData = {
-            first_name: document.querySelector('.form-container input[name="full_name"]').value,
-            phone: document.querySelector('.form-container input[name="phone_number"]').value,
-            city: document.querySelector('.form-container input[name="city"]').value
-        };
-      
-        // Set values in host form
-        const hostForm = document.querySelector('#express-checkout-form > div > div');
-        if (hostForm) {
-            hostForm.querySelector('input[name="first_name"]').value = customFormData.first_name;
-            hostForm.querySelector('input[name="phone"]').value = customFormData.phone;
-            hostForm.querySelector('input[name="city"]').value = customFormData.city;
-      
-            // Trigger input events to ensure any form validation is triggered
-            ['first_name', 'phone', 'city'].forEach(field => {
-                const input = hostForm.querySelector(`input[name="${field}"]`);
-                if (input) {
-                    const event = new Event('input', { bubbles: true });
-                    input.dispatchEvent(event);
-                }
-            });
-        } else {
-            console.error('Host form not found');
-            return;
-        }
-        // Trigger Facebook Pixel Lead event
-        /* if (typeof fbq !== 'undefined') {
-            fbq('track', 'Lead');
-        } else {
-            console.warn('Facebook Pixel not loaded');
-        }
-      
-        // Click the host's checkout button
-        const hostSubmitButton = document.querySelector('.product-section.add-to-cart-section button.single-submit');
-        if (hostSubmitButton) {
-            hostSubmitButton.click();
-        } else {
-            console.error('Host submit button not found');
-        } */
-      });
-    </script>
   </body>
 </html>
