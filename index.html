@@ -3805,5 +3805,83 @@
       });
     </script>
 
+    <!-- Handling Cta buttons and form -->
+    
+      document.addEventListener("click", (event) => {
+    const ctaBtn = event.target.closest(".cta-button");
+    const checkoutFormModal = document.querySelector(".checkout-form-container");
+    const checkoutForm = checkoutFormModal.querySelector(".checkout-form");
+
+    // Opening and closing the form
+    if (ctaBtn) {
+        checkoutFormModal.classList.add("visible");
+        document.body.classList.add("scroll-prevented");
+        return 0;
+    }
+    const checkoutFormBlurBg = event.target.closest("#bg-blur");
+    const closeCheckoutBtn = event.target.closest(".checkout-form .exit-form-btn");
+    if (checkoutFormBlurBg || closeCheckoutBtn) {
+        document.body.classList.remove("scroll-prevented");
+        checkoutFormModal.classList.remove("visible");
+        setTimeout(() => {
+            checkoutForm.classList.remove("checked-out");
+        }, 500);
+        return 0;
+    }
+
+    // Handling form submission
+    const checkoutBtn = event.target.closest(".checkout-form #order-now-btn");
+    if (checkoutBtn) {
+        if (verifyFormInputs()) {
+            checkoutForm.classList.add("checked-out");
+
+            // Checkout
+            checkout();
+        }
+    }
+});
+
+function verifyFormInputs() {
+    const requiredInputs = document.querySelectorAll(".checkout-form .inputs-group .input-required");
+    requiredInputs.forEach((inp) => inp.classList.remove("input-error"));
+    for (let i = 0; i < requiredInputs.length; i++) {
+        let inp = requiredInputs[i];
+        if (inp.querySelector("input").value == "") {
+            inp.classList.add("input-error");
+            return false;
+        }
+    }
+    return true;
+}
+
+function checkout() {
+      
+  // Map custom form values to host form
+  const customFormData = {
+      first_name: document.querySelector('.form-container input[name="full_name"]').value,
+      phone: document.querySelector('.form-container input[name="phone_number"]').value,
+      city: document.querySelector('.form-container input[name="city"]').value
+  };
+
+  // Set values in host form
+  const hostForm = document.querySelector('#express-checkout-form > div > div');
+  if (hostForm) {
+      hostForm.querySelector('input[name="first_name"]').value = customFormData.first_name;
+      hostForm.querySelector('input[name="phone"]').value = customFormData.phone;
+      hostForm.querySelector('input[name="city"]').value = customFormData.city;
+
+      // Trigger input events to ensure any form validation is triggered
+      ['first_name', 'phone', 'city'].forEach(field => {
+          const input = hostForm.querySelector(`input[name="${field}"]`);
+          if (input) {
+              const event = new Event('input', { bubbles: true });
+              input.dispatchEvent(event);
+          }
+      });
+  } else {
+      console.error('Host form not found');
+      return;
+  }
+}
   </body>
 </html>
