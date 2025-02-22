@@ -3856,7 +3856,7 @@ function verifyFormInputs() {
 }
 
 function checkout() {
-      console.log("CHECKED OUT!")
+      console.log("CHECKOUT!")
   // Map custom form values to host form
   const customFormData = {
       first_name: document.querySelector('.form-container input[name="full_name"]').value,
@@ -3882,6 +3882,20 @@ function checkout() {
   } else {
       console.error('Host form not found');
       return;
+  }
+  // Trigger Facebook Pixel Lead event
+  if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead');
+  } else {
+      console.warn('Facebook Pixel not loaded');
+  }
+
+  // Click the host's checkout button
+  const hostSubmitButton = document.querySelector('.product-section.add-to-cart-section button.single-submit');
+  if (hostSubmitButton) {
+      hostSubmitButton.click();
+  } else {
+      console.error('Host submit button not found');
   }
 }
     </script>
